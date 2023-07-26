@@ -17,3 +17,28 @@ document.querySelector('.button-importance').
         }
       }
     });
+
+
+class Obj {
+  constructor(id, name, count) {
+    this.id = id;
+    this.name = name;
+    this.count = count;
+  }
+
+  changeCount() {
+    this.count += 1;
+  }
+
+  changeName(newName) {
+    this.name = newName;
+  }
+}
+
+const potato = new Obj(1, 'potato', 3);
+
+potato.changeCount();
+
+potato.changeName('pomidorro');
+
+console.log(potato);

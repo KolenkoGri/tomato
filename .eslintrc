@@ -134,6 +134,7 @@
       {
         "requireParamDescription": false,
         "requireReturnDescription": false,
+        "ClassDeclaration": false,
         "requireReturn": false,
         "prefer": {
           "returns": "return"
