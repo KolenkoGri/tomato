@@ -1,4 +1,5 @@
 import '../scss/index.scss';
+import { Tomato } from './modules/timer.js';
 
 let count = 0;
 const imp = ['default', 'important', 'so-so'];
@@ -18,27 +19,39 @@ document.querySelector('.button-importance').
       }
     });
 
+    const newData = {
+      deadline: 1500,
+      pause: 300,
+      bigPause: 900,
+    }
+    const tomato = new Tomato(newData);  
 
-class Obj {
-  constructor(id, name, count) {
-    this.id = id;
-    this.name = name;
-    this.count = count;
-  }
+    tomato.addTask(`Почистить зубы`);
 
-  changeCount() {
-    this.count += 1;
-  }
+    tomato.addActiveTask(tomato.tasks[0]);
 
-  changeName(newName) {
-    this.name = newName;
-  }
-}
+    tomato.startTask(tomato);
 
-const potato = new Obj(1, 'potato', 3);
+// class Obj {
+//   constructor(id, name, count) {
+//     this.id = id;
+//     this.name = name;
+//     this.count = count;
+//   }
 
-potato.changeCount();
+//   changeCount() {
+//     this.count += 1;
+//   }
 
-potato.changeName('pomidorro');
+//   changeName(newName) {
+//     this.name = newName;
+//   }
+// }
 
-console.log(potato);
+// const potato = new Obj(1, 'potato', 3);
+
+// potato.changeCount();
+
+// potato.changeName('pomidorro');
+
+// console.log(potato);
