@@ -1,10 +1,15 @@
 export class Tomato {
     constructor({deadline, pause, bigPause, tasks = []}) {
-      this.deadline = deadline;
-      this.pause = pause;
-      this.bigPause = bigPause;
-      this.tasks = tasks;
-      this.activeTask = null;
+      if (Tomato._instance) {
+            return Tomato._instance;
+        }
+        this.deadline = deadline;
+        this.pause = pause;
+        this.bigPause = bigPause;
+        this.tasks = tasks;
+        this.activeTask = null;
+        
+        Tomato._instance = this;
     }
     
     returnTime () {
@@ -21,7 +26,7 @@ export class Tomato {
 
     startTask(tomato){
         setInterval(() => {
-            console.log(tomato);
+            // console.log(tomato);
 
             this.deadline -= 1;
             let count = 0;

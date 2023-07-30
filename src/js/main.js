@@ -1,5 +1,7 @@
 import '../scss/index.scss';
 import { Tomato } from './modules/timer.js';
+import './modules/createTask.js';
+import './modules/start.js';
 
 let count = 0;
 const imp = ['default', 'important', 'so-so'];
