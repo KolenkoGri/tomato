@@ -70,7 +70,9 @@ taskForm.addEventListener('submit', (e) => {
         if(target.className === 'pomodoro-tasks__task-button'){
             popupMenu(target.closest('.pomodoro-tasks__list-task'));
             const popupEdit = target.closest('.pomodoro-tasks__list-task').querySelector('.burger-popup__edit-button');
-            popupEdit.addEventListener('click', () => {
+            
+            if(popupEdit) {
+                popupEdit.addEventListener('click', () => {
                 const text = target.closest('.pomodoro-tasks__list-task').querySelector('.pomodoro-tasks__task-text');
                 text.setAttribute('contenteditable', '');
                 text.focus();
@@ -86,6 +88,7 @@ taskForm.addEventListener('submit', (e) => {
                 target.closest('.pomodoro-tasks__list-task').remove();
                 popupMenu(target.closest('.pomodoro-tasks__list-task'));
             });
+        }
         }
 
     })
