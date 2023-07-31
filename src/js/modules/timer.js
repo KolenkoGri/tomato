@@ -22,6 +22,7 @@ export class Tomato {
   
     addActiveTask(activeTask) {
         this.activeTask = activeTask;
+        return this.activeTask;
     } 
 
     startTask(tomato){

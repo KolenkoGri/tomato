@@ -66,10 +66,26 @@ taskForm.addEventListener('submit', (e) => {
     createTask(importance,task);
     taskForm.reset();
     tasks.addEventListener('click', (e) => {
-        const target = e.target;
+        const target = e.target;        
         if(target.className === 'pomodoro-tasks__task-button'){
-            console.log(target.closest('.pomodoro-tasks__list-task'));
             popupMenu(target.closest('.pomodoro-tasks__list-task'));
+            const popupEdit = target.closest('.pomodoro-tasks__list-task').querySelector('.burger-popup__edit-button');
+            popupEdit.addEventListener('click', () => {
+                const text = target.closest('.pomodoro-tasks__list-task').querySelector('.pomodoro-tasks__task-text');
+                text.setAttribute('contenteditable', '');
+                text.focus();
+                popupMenu(target.closest('.pomodoro-tasks__list-task'));
+                text.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        text.removeAttribute('contenteditable');
+                    }
+                });
+            });
+            const popupDelete = document.querySelector('.burger-popup__delete-button');
+            popupDelete.addEventListener('click', () => {
+                target.closest('.pomodoro-tasks__list-task').remove();
+                popupMenu(target.closest('.pomodoro-tasks__list-task'));
+            });
         }
 
     })
